@@ -1,7 +1,7 @@
 pipeline{
  agent{
   node{
-    label 'Linux-Slave'
+    label 'build-sample-app'
    }
  }
  stages{
