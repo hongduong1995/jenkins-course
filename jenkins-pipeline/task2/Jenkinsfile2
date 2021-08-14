@@ -1,0 +1,36 @@
+pipeline{
+ agent{
+  node{
+    label 'Linux-Slave'
+   }
+ }
+ stages{
+  stage('SVC'){
+   steps{
+    sh 'echo "SVC"
+    sh 'echo Chay stage 1 SVC'
+    sh 'echo Chay stage 2'
+   }
+  }
+  stage('Build'){
+   steps{
+    sh 'echo build slave'
+    sh 'echo hoan thanh build'
+    sh 'chuyen sang stage 3'
+   }
+  }
+  stage('TEST'){
+   steps{
+    sh 'echo test build'
+    sh 'echo hoan thanh test build'
+    sh 'echo chuyen sang stage release'
+   }
+  }
+  stage('Release'){
+   steps{
+    sh 'echo release V1.0'
+    sh 'echo release thanh cong'
+   }
+  }
+ }
+}
