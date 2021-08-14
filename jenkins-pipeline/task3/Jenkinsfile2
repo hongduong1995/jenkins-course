@@ -1,0 +1,26 @@
+pipeline{
+ agent any
+ stages{
+  stage('CLONE'){
+   steps{
+    sh 'git clone https://github.com/hoabka/nodejs-demo.git'
+    sh 'cd nodejs-demo'
+   }
+  }
+  stage('Build'){
+   steps{
+    sh 'docker build -t hongduong1995/demojenkinspipeline:demo .'
+   }
+  }
+  stage('PushImagetoDockerHub'){
+   steps{
+    sh 'docker push master'
+   }
+  }
+  stage('KetThuc'){
+   steps{
+    sh 'echo release thanh cong'
+   }
+  }
+ }
+}
